@@ -1,5 +1,3 @@
-//Calculadora
-
 programa {
 
 inclua biblioteca Matematica
