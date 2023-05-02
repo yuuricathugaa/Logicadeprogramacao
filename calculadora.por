@@ -1,50 +1,100 @@
 programa {
+		inclua biblioteca Matematica --> mat
+	funcao inicio()
+	{
+	
+     real volume1
+     real volume2
+     real volume3
+     real volume4
+     inteiro opcao
 
-inclua biblioteca Matematica
+     escreva("Qual volume você quer calcular ?")
 
-  funcao inicio() {
-    real resultado
-    real n1, n2
-    real op
+     enquanto(verdadeiro){
+      escreva("\n1) Calcular o volume do CUBO")
+      escreva("\n2) Calcular o volume do PARALELEPÍPEDO")
+      escreva("\n3) Calcular do volume da ESFERA")
+      escreva("\n4) Calcular o volume do CILINDRO")
+      escreva("\nEscolha uma opcão entre 1 e 4 : ")
+      leia(opcao)
 
+      // Cubo
+      se (opcao == 1){
+        real l1
+    escreva("\nDigite o valor do lado do cubo : ")
+		leia(l1)
+		volume1 = cubo(l1)
+		escreva("Volume do cubo = ", volume1)
+      }
+
+      // Paralelepípedo
+    se(opcao == 2){
+      real altura, largura, comprimento
+      escreva("\nDigite o valor do comprimento : ")
+      leia(comprimento)
+      escreva("\nDigite o valor da largura : ")
+      leia(largura)
+      escreva("\nDigite o valor da altura : ")
+      leia(altura)
+      volume2 = paralelepipedo(comprimento, largura, altura)
+      escreva("Volume do paralelepípedo = ", volume2)
+    }
+
+    // Esfera
+    se(opcao == 3){
+      real raio
+      escreva("\nDigite o valor do raio : ")
+      leia(raio)
+      volume3 = esfera(raio)
+      escreva("O valor do volume da esfera é = " , volume3)
+    }
+
+    //Cilindro
+    se(opcao == 4){
+      real raiobase, altura1
+      escreva("\nDigite o valor da altura do cilindro:")
+      leia(altura1)
+      escreva("Digite o valor do raio da base do cilindro:")
+      leia(raiobase)
+      volume4 = cilindro(altura1, raiobase)
+      escreva("O valor do volume do cilindro é = " , volume4)
+    }
   
-    escreva("Qual a operação que você deseja: \n")
-    escreva("Digite: \n")
-    escreva("1 para SOMAR \n")
-    escreva("2 para SUBTRAIR \n")
-    escreva("3 para MULTIPLICAR \n")
-    escreva("4 para DIVIDIR \n\n")
+   }
 
-    leia(op)
-    
-    se (op > 0 e op < 5) {
+	}
+	funcao real cubo(real l1){
+		real volume1
 
-   
-    escreva("Qual o primeiro valor: ")
-    leia(n1)
-    escreva("Qual o segundo valor: ")
-    leia(n2)
-    
-  
+		volume1 = mat.potencia(l1, 3.0)
 
-    se (op == 1) escreva("Resultado: ", n1+n2)
-    se (op == 2) escreva("Resultado: ", n1-n2)
-    se (op == 3) escreva("Resultado: ", n1*n2) 
-    se (op == 4) escreva("Resultado: ", n1/n2)
+		retorne volume1
+	}
+	
+	funcao real paralelepipedo(real comprimento, real largura, real altura)
+	{
+		real volume2
+
+		volume2 = comprimento*largura*altura
+
+		retorne volume2
+		
+	}
+     funcao real esfera(real raio){
+          real volume3
+          real pi = 3.14
+
+          volume3 = (4*pi*mat.potencia(raio, 3.0))/3.0
+
+          retorne volume3
+}
+  funcao real cilindro(real altura1, real raiobase){
+    real volume4
+    real pi = 3.14
+
+    volume4 = pi*mat.potencia(raiobase, 2)*altura1
+
+    retorne volume4
   }
-  senao escreva("Digite um Número Válido: ")
-
-  
 }
-}
-/* $$$ Portugol Studio $$$ 
- * 
- * Esta seção do arquivo guarda informações do Portugol Studio.
- * Você pode apagá-la se estiver utilizando outro editor.
- * 
- * @POSICAO-CURSOR = 750; 
- * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = ;
- * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
- * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
- */
